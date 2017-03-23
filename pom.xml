@@ -8,6 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<modules>
 		<module>remote-one</module>
+		<module>remote-two</module>
 	</modules>
 	<packaging>pom</packaging>
 

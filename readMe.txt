@@ -4,3 +4,5 @@
 
 
 remote-one:通过java原生API访问别人的Controller服务，无法直接访问Service
+
+remote-two:httpClient,无法直接访问Service
