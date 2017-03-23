@@ -9,8 +9,6 @@
 	<modules>
 		<module>remote-one</module>
 		<module>remote-two</module>
-		<module>remote-three-RMI</module>
-		<module>rmi-provider</module>
 	</modules>
 	<packaging>pom</packaging>
 
