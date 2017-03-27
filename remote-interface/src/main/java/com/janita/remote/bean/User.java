@@ -1,9 +1,11 @@
 package com.janita.remote.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by Janita on 2017-03-27 10:10
  */
-public class User {
+public class User implements Serializable{
 
     private String userId;
 

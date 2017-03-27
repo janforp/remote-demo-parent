@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/user")
-@Api(description = "GET提供远程调用的接口")
+@Api(description = "POST，接口参数为对象，提供远程调用的接口")
 public class PostPojoUserController {
 
     @Autowired

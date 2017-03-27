@@ -9,6 +9,7 @@
 	<modules>
 		<module>remote-one</module>
 		<module>remote-two</module>
+		<module>httpclientUtil-master</module>
 	</modules>
 	<packaging>pom</packaging>
 

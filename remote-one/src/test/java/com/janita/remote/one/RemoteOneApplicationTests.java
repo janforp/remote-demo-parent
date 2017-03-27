@@ -2,7 +2,9 @@ package com.janita.remote.one;
 
 import com.httpclient.HttpClientUtil;
 import com.httpclient.builder.HCB;
+import com.httpclient.common.HttpHeader;
 import com.httpclient.exception.HttpProcessException;
+import org.apache.http.Header;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -47,8 +49,18 @@ public class RemoteOneApplicationTests {
     private static String POST_USER = "http://192.168.100.75:9999/user/findOne";
     @Test
     public void testPostPojoUser() throws HttpProcessException {
+
+        //插件式配置Header（各种header信息、自定义header）
+        Header[] headers 	= HttpHeader.custom()
+                .userAgent("javacl")
+                .other("customer", "自定义")
+                .other("Accept","application/json")
+                .other("Content-Type"," application/json")
+                .build();
+
+
         Map<String,Object> map = new HashMap<>();
         map.put("userId","123123");
-        System.out.println("*******"+ HttpClientUtil.post(HCB.custom().build(),POST_USER,null,map,null,"utf-8"));
+        System.out.println("*******"+ HttpClientUtil.post(HCB.custom().build(),POST_USER,headers,map,null,"utf-8"));
     }
 }
