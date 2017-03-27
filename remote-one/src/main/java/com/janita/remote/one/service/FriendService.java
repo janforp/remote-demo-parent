@@ -3,6 +3,7 @@ package com.janita.remote.one.service;
 import com.alibaba.fastjson.JSON;
 import com.janita.remote.one.config.RemoteConfig;
 import com.janita.remote.one.constant.ResultDto;
+import com.janita.remote.one.entity.Friend;
 import com.janita.remote.one.util.HttpUrlConnectionUtil;
 import org.springframework.stereotype.Service;
 
@@ -10,25 +11,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Janita on 2017-03-23 09:56
+ * Created by Janita on 2017-03-27 10:28
  */
 @Service
-public class QuestionService {
+public class FriendService {
 
-    /**
-     * 这里有个问题：就是只能调用别人的Controller接口，
-     * 我们肯定只想调用他们的Service接口，因为Service返回的只是Question，
-     * 而controller返回的是被封装了一层的实体类
-     * @param questionId
-     * @return
-     */
-    public ResultDto findOne(String questionId) {
+    public ResultDto getFriend(String friendId) {
+
 //        Map<String,String> map = new HashMap<>();
-//        map.put("questionId",questionId);
-//        String url = RemoteConfig.getUrl()+"/question/findOne";
+//        map.put("friendId",friendId);
+//        String url = RemoteConfig.getUrl()+"/friend/findOne";
 //        String result = HttpUrlConnectionUtil.httpRequestToString(url,RemoteConfig.getGet(),map);
 //        System.out.println("*******"+result);
 //        return JSON.parseObject(result,ResultDto.class);
         return null;
     }
+
 }

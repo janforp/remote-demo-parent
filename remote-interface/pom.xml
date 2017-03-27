@@ -9,14 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>remote-one</artifactId>
+    <artifactId>remote-interface</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>com.httpclient</groupId>
-            <artifactId>httpclientUtil</artifactId>
-            <version>3.0-beta</version>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -42,11 +37,6 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.thoughtworks.xstream</groupId>
-            <artifactId>xstream</artifactId>
-            <version>1.3.1</version>
         </dependency>
 
     </dependencies>

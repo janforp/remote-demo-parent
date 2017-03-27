@@ -17,7 +17,9 @@ public class QuestionService {
 
     public ResultDto findOne(String questionId) {
         Map<String,String> map = new HashMap<>();
-        String url = RemoteConfig.getUrl()+"/question/findOne?id="+questionId;
+        map.put("questionId",questionId);
+//        String url = RemoteConfig.getUrl()+"/question/findOne?id="+questionId;
+        String url = RemoteConfig.getUrl()+"/question/findOne";
         String result = HttpClientUtil.httpRequestToString(url,RemoteConfig.getPost(),map);
         System.out.println("*******"+result);
         return JSON.parseObject(result,ResultDto.class);
