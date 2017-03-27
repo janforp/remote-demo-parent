@@ -100,6 +100,7 @@ public class APIHttpClient {
         JsonObject j = new JsonObject();
         j.addProperty("userId", "12323");
         arry.add(j);
+        //当方法的参数是java的集合时，则用注释掉的
 //        System.out.println(ac.post(arry.toString()));
         System.out.println(ac.post(j.toString()));
 
