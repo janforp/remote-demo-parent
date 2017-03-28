@@ -47,33 +47,13 @@ public class TestUserCookie {
 		String userUrl  = "http://192.168.100.75:9999/user/findOne";
 		User user = new User();
 		user.setUserId("sdfsdfsdf");
-		System.out.println("*******"+ HttpClientUtils.doHttpPost(HOST+url,user));
+		System.out.println("*******"+ HttpClientUtils.doHttpPost(userUrl,user));
 
-		//发送登录请求
-		result = HttpClientUtil.post(config.map(map));//可以用.send(config.method(HttpMethods.POST).map(map))代替，但是推荐使用明确的post方法
-		//System.out.println(result);
-		if(result.contains("帐号登录")){//如果有帐号登录，则说明未登录成功
-			String errmsg = regex("\"error-message\">([^<]*)<", result)[0];
-			System.err.println("登录失败："+errmsg);
-			return;
-		}
-		System.out.println("----登录成功----");
-		
-//		//打印参数，可以看到cookie里已经有值了。
 		cookieStore = context.getCookieStore();
 		for (Cookie cookie : cookieStore.getCookies()) {
 			System.out.println(cookie.getName()+"--"+cookie.getValue());
 		}
-		
-		//访问积分管理页面
-		Header[] headers = HttpHeader.custom().userAgent("User-Agent: Mozilla/5.0").build();
-		result = HttpClientUtil.post(config.url(scoreUrl).headers(headers));//可以用.send(config.url(scoreUrl).headers(headers))代替，但是推荐使用明确的post方法
-		//获取C币
-		String score = regex("\"last-img\"><span>([^<]*)<", result)[0];
-		System.out.println("您当前有C币："+score);
-		
 	}
-	
 
 	/**
 	 * 通过正则表达式获取内容

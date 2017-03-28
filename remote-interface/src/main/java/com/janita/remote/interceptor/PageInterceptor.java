@@ -13,23 +13,20 @@ import java.util.UUID;
  */
 public class PageInterceptor implements HandlerInterceptor {
 
+    private static Integer ONE_HOUR =  60*60;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
         //打印请求头
         InterceptorUtils.printRequestHeaders(request);
-
-        Cookie cookie = new Cookie("cookie","cookieValue");
-        cookie.setMaxAge(60*60);
-        cookie.setPath(request.getContextPath());
-        cookie.setSecure(true);
-        response.addCookie(cookie);
-
+        //在此处可以根据具体的业务添加多个cookie到前端
+        InterceptorUtils.setCookie(request,response,"X-access-token", UUID.randomUUID().toString(),ONE_HOUR);
+        InterceptorUtils.setCookie(request,response,"CookTwo","CookTwoValue",ONE_HOUR);
         return true;
     }
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object o, ModelAndView modelAndView) throws Exception {
-        InterceptorUtils.setCookie(request,response,"X-access-token", UUID.randomUUID().toString(),60*60);
     }
 
     @Override
