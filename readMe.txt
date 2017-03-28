@@ -7,4 +7,4 @@ remote-one:通过java原生API访问别人的Controller服务，无法直接访�
 
 remote-two:httpClient,无法直接访问Service
 
-remote-three-RMI:RMI远程调用框架---远程方法调用（Remote Method Invoke）
+remote-utils:使用GitHub上别人封装好的一些方法，可以进行很多高大上的操作，如cookie的传递，文件上传下载等操作
