@@ -17,6 +17,7 @@ import com.google.gson.JsonObject;
 
 /**
  * Created by Janita on 2017-03-27 15:44
+ * 用于远程调用参数为对象的接口
  */
 public class APIHttpClient {
 

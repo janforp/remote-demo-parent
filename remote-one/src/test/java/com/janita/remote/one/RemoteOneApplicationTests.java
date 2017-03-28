@@ -1,9 +1,12 @@
 package com.janita.remote.one;
 
+import com.alibaba.fastjson.JSON;
 import com.httpclient.HttpClientUtil;
 import com.httpclient.builder.HCB;
+import com.httpclient.common.HttpConfig;
 import com.httpclient.common.HttpHeader;
 import com.httpclient.exception.HttpProcessException;
+import com.janita.remote.one.entity.User;
 import org.apache.http.Header;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -62,5 +65,24 @@ public class RemoteOneApplicationTests {
         Map<String,Object> map = new HashMap<>();
         map.put("userId","123123");
         System.out.println("*******"+ HttpClientUtil.post(HCB.custom().build(),POST_USER,headers,map,null,"utf-8"));
+    }
+
+    @Test
+    public void testPOSTPOJO() throws HttpProcessException {
+        String url = "http://192.168.100.75:9999/user/findOne";
+        User user = new User();
+        user.setUserId("12222");
+
+        Header[] headers 	= HttpHeader.custom()
+                .userAgent("javacl")
+                .other("customer", "self")
+                .other("Accept","application/json")
+                .other("Content-Type"," application/json")
+                .other("token","12313123123123")
+                .other("host","host")
+                .build();
+
+        String result  = HttpClientUtil.post(HttpConfig.custom().client(HCB.custom().build()).url(url).headers(headers).map(null).context(null).encoding("UTF-8").json(JSON.toJSONString(user)));
+        System.out.println("*******"+result);
     }
 }

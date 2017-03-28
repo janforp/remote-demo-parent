@@ -9,8 +9,8 @@
 	<modules>
 		<module>remote-one</module>
 		<module>remote-two</module>
-		<module>httpclientUtil-master</module>
-	</modules>
+        <module>remote-utils</module>
+    </modules>
 	<packaging>pom</packaging>
 
 	<name>remote-demo-parent</name>
@@ -69,6 +69,12 @@
 				<groupId>com.alibaba</groupId>
 				<artifactId>fastjson</artifactId>
 				<version>1.2.28</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>4.4.1</version>
 			</dependency>
 
 		</dependencies>

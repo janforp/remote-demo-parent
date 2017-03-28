@@ -1,6 +1,6 @@
 package com.janita.remote.config;
 
-import com.janita.remote.interceptor.MyInterceptor;
+import com.janita.remote.interceptor.PageInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -19,7 +19,7 @@ public class MyWebAppConfiguration extends WebMvcConfigurerAdapter {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry){
-        registry.addInterceptor(new MyInterceptor()).addPathPatterns("/*/**");
+        registry.addInterceptor(new PageInterceptor()).addPathPatterns("/*/**");
         super.addInterceptors(registry);
     }
 }

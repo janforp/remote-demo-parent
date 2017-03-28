@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * Created by Janita on 2017-03-27 10:07
  */
@@ -28,5 +30,11 @@ public class PostPojoUserController {
     public ResultDto findUserById(@RequestBody User user){
         String userId = user.getUserId();
         return ResultDtoFactory.toSuccess(userService.findOne(userId));
+    }
+
+    @RequestMapping(value = "/saveBatch",method = RequestMethod.POST)
+    @ApiOperation(value = "批量插入user")
+    public ResultDto saveBatch(@RequestBody List<User> users){
+        return ResultDtoFactory.toSuccess(users);
     }
 }
