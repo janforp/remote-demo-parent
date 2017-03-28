@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
 /**
@@ -58,6 +59,22 @@ public class InterceptorUtils {
         if (httpHeaderLogger.isInfoEnabled()) {
             httpHeaderLogger.info(requestUri + " - cookies: \n" + cookieMap);
         }
+    }
+
+    /**
+     * 向请求及响应中添加cookie
+     * @param request       请求
+     * @param response      响应
+     * @param cookieName    cookie名
+     * @param cookieValue   cookie值
+     * @param maxAge        cookie的有效期
+     */
+    public static void setCookie(HttpServletRequest request,HttpServletResponse response,String cookieName,String cookieValue,Integer maxAge){
+        Cookie cookie = new Cookie(cookieName,cookieValue);
+        cookie.setMaxAge(maxAge);
+        cookie.setPath(request.getContextPath());
+        cookie.setSecure(true);
+        response.addCookie(cookie);
     }
 
     public static String headerValuesToString(Collection<String> values) {
