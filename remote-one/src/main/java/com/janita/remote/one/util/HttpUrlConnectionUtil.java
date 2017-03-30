@@ -16,6 +16,9 @@ import java.util.Map;
  */
 public class HttpUrlConnectionUtil {
 
+    private static String HOST = "http://118.178.138.136:8080";
+    private static String url = "/account/v1/users/get_token";
+
     /**
      * <pre>
      * 方法体说明：向远程接口发起请求，返回字符串类型结果
@@ -25,8 +28,7 @@ public class HttpUrlConnectionUtil {
      * @return String 返回结果
      * </pre>
      */
-    public static String httpRequestToString(String url, String requestMethod,
-                                             Map<String, String> params){
+    public static String httpRequestToString(String url, String requestMethod, Map<String, String> params){
 
         String result = null;
         try {
@@ -38,6 +40,18 @@ public class HttpUrlConnectionUtil {
             e.printStackTrace();
         }
         return result;
+    }
+
+    public static void main(String[] args){
+        String INTE = HOST+url;
+
+        String username = "01010072llnt";
+        String password = "49ba59abbe56e057";
+        Map<String,String> map = new HashMap<>();
+        map.put("username",username);
+        map.put("password",password);
+
+        System.out.println("*******"+httpRequestToString(INTE,"POST",map));
     }
 
     /**

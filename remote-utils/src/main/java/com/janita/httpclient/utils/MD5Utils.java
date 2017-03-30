@@ -9,16 +9,16 @@ import java.security.MessageDigest;
  */
 public class MD5Utils {
 
-    public final static String MD5(String s) {
+    public final static String MD5(String msg) {
         char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
         try {
-            byte[] btInput = s.getBytes();
+            byte[] msgBytes = msg.getBytes();
             // 获得MD5摘要算法的 MessageDigest 对象
-            MessageDigest mdInst = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             // 使用指定的字节更新摘要
-            mdInst.update(btInput);
+            messageDigest.update(msgBytes);
             // 获得密文
-            byte[] md = mdInst.digest();
+            byte[] md = messageDigest.digest();
             // 把密文转换成十六进制的字符串形式
             int j = md.length;
             char str[] = new char[j * 2];
@@ -36,6 +36,6 @@ public class MD5Utils {
     }
 
     public static void main(String[] args) {
-        System.out.println(MD5Utils.MD5("123456"));
+        System.out.println(MD5Utils.MD5("12345 6"));
     }
 }
