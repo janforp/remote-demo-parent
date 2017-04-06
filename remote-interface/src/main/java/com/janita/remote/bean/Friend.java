@@ -4,6 +4,7 @@ package com.janita.remote.bean;
  * Created by Janita on 2017-03-27 10:17
  */
 public class Friend {
+    //TODO
 
     private String friendId;
 
@@ -16,6 +17,7 @@ public class Friend {
     public void setFriendId(String friendId) {
         this.friendId = friendId;
     }
+
 
     public String getFriendName() {
         return friendName;

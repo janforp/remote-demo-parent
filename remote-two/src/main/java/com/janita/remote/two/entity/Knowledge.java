@@ -22,6 +22,8 @@ public class Knowledge implements Serializable{
 	 */
 	private String name;
 
+	//TODO
+	
 	public Knowledge() {
 	}
 	public Knowledge(Long knowledgeId, String name) {
